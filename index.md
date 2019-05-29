@@ -5,7 +5,7 @@ There is almost nothing here but you're still welcome!
 [Rust & Webassembly 🦀🕸 Test](rustwasm.html)
 
 ---
-# Posts
+# Posts:
 ---
 <ul>
   {% for post in site.posts %}
