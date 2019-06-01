@@ -3,6 +3,7 @@
 There is almost nothing here but you're still welcome!
 
 [Rust & Webassembly 🦀🕸 Test](rustwasm.html)
+
 [Rust & Webassembly 🦀🕸 & Canvas 🖼️ Test](rustwasm2.html) ([Code](https://github.com/Apromixately/rustwasm))
 
 ---
