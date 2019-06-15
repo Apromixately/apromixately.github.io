@@ -7,6 +7,11 @@ function __wbg_random_a3632ce29e3f2eec() {
 }
 __exports.__wbg_random_a3632ce29e3f2eec = __wbg_random_a3632ce29e3f2eec
 
+function __wbg_round_371a53e9520776d8(arg0) {
+    return Math.round(arg0);
+}
+__exports.__wbg_round_371a53e9520776d8 = __wbg_round_371a53e9520776d8
+
 let cachedTextDecoder = new TextDecoder('utf-8');
 
 let cachegetUint8Memory = null;
