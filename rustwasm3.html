@@ -4,6 +4,9 @@
   </head>
   <body>
     <canvas id="output"></canvas>
+    <h3>How does it work?</h3>
+    <p>The bottom line always has the maximum "heat" value. Heat values are moved up and randomly a bit left and right. When moved there is a chance that the value will decrease a little bit. Heat values of 0 always move straight up.</p>
+    <p>Looks pretty good for how simple it is. :)</p>
     <script type="module">
       import { Canvas, default as init } from './pkg/fire.js';
 
@@ -18,6 +21,8 @@
         const jscanvas = document.getElementById("output");
         jscanvas.width = w;
         jscanvas.height = h;
+        jscanvas.style.width = 1.5*w;
+        jscanvas.style.height = 1.5*h;
         const ctx = jscanvas.getContext('2d');
 
         const memoryPtr = rustcanvas.buf();
