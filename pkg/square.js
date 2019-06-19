@@ -61,6 +61,18 @@ function handleError(e) {
     wasm.__wbindgen_exn_store(addHeapObject(e));
 }
 
+let cachegetFloat32Memory = null;
+function getFloat32Memory() {
+    if (cachegetFloat32Memory === null || cachegetFloat32Memory.buffer !== wasm.memory.buffer) {
+        cachegetFloat32Memory = new Float32Array(wasm.memory.buffer);
+    }
+    return cachegetFloat32Memory;
+}
+
+function getArrayF32FromWasm(ptr, len) {
+    return getFloat32Memory().subarray(ptr / 4, ptr / 4 + len);
+}
+
 let WASM_VECTOR_LEN = 0;
 
 let cachedTextEncoder = new TextEncoder('utf-8');
@@ -172,6 +184,10 @@ function init(module) {
     imports.wbg.__widl_f_buffer_data_with_array_buffer_view_WebGLRenderingContext = function(arg0, arg1, arg2, arg3) {
         getObject(arg0).bufferData(arg1 >>> 0, getObject(arg2), arg3 >>> 0);
     };
+    imports.wbg.__widl_f_uniform_matrix4fv_with_f32_array_WebGLRenderingContext = function(arg0, arg1, arg2, arg3, arg4) {
+        let varg3 = getArrayF32FromWasm(arg3, arg4);
+        getObject(arg0).uniformMatrix4fv(getObject(arg1), arg2 !== 0, varg3);
+    };
     imports.wbg.__widl_f_attach_shader_WebGLRenderingContext = function(arg0, arg1, arg2) {
         getObject(arg0).attachShader(getObject(arg1), getObject(arg2));
     };
@@ -234,6 +250,13 @@ function init(module) {
     };
     imports.wbg.__widl_f_get_shader_parameter_WebGLRenderingContext = function(arg0, arg1, arg2) {
         return addHeapObject(getObject(arg0).getShaderParameter(getObject(arg1), arg2 >>> 0));
+    };
+    imports.wbg.__widl_f_get_uniform_location_WebGLRenderingContext = function(arg0, arg1, arg2, arg3) {
+        let varg2 = getStringFromWasm(arg2, arg3);
+
+        const val = getObject(arg0).getUniformLocation(getObject(arg1), varg2);
+        return isLikeNone(val) ? 0 : addHeapObject(val);
+
     };
     imports.wbg.__widl_f_link_program_WebGLRenderingContext = function(arg0, arg1) {
         getObject(arg0).linkProgram(getObject(arg1));
