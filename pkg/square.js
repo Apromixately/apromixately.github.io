@@ -227,6 +227,10 @@ function init(module) {
     imports.wbg.__widl_f_enable_vertex_attrib_array_WebGLRenderingContext = function(arg0, arg1) {
         getObject(arg0).enableVertexAttribArray(arg1 >>> 0);
     };
+    imports.wbg.__widl_f_get_attrib_location_WebGLRenderingContext = function(arg0, arg1, arg2, arg3) {
+        let varg2 = getStringFromWasm(arg2, arg3);
+        return getObject(arg0).getAttribLocation(getObject(arg1), varg2);
+    };
     imports.wbg.__widl_f_get_program_info_log_WebGLRenderingContext = function(ret, arg0, arg1) {
         const val = getObject(arg0).getProgramInfoLog(getObject(arg1));
         const retptr = isLikeNone(val) ? [0, 0] : passStringToWasm(val);
