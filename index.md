@@ -8,6 +8,8 @@ There is almost nothing here but you're still welcome!
 
 [🔥 Test](rustwasm3.html) ([Code](https://github.com/Apromixately/rustwasm/tree/master/fire)) ([Source](https://codepen.io/svkaiser/pen/xXmOvY), [Via](https://fabiensanglard.net/doom_fire_psx/))
 
+[Playing with the wasm-bindgen WebGL example](rustwasm_square.html) ([Source](https://github.com/rustwasm/wasm-bindgen/tree/master/examples/webgl))
+
 ---
 # Posts:
 ---
